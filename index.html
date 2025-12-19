@@ -1,85 +1,119 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dubai Elite Homes | تأجير شاليهات ومنتجعات</title>
-<style>
-body {font-family: Arial, sans-serif; margin:0; background:#f7f7f7; color:#222;}
-header {background:#0f2a44; color:#fff; padding:30px; text-align:center;}
-section {padding:30px; background:#fff; margin:20px;}
-h1,h2 {color:#0f2a44;}
-button {background:#0f2a44; color:#fff; padding:15px 25px; border:none; font-size:16px; cursor:pointer;}
-footer {background:#eee; padding:20px; text-align:center; font-size:14px;}
-a {text-decoration:none;}
-</style>
+  <meta charset="UTF-8">
+  <title>Silver Chalets Booking</title>
+  <style>
+    body { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    header, footer { background: #007B8F; color: white; text-align: center; padding: 20px; }
+    h2 { color: #007B8F; }
+    section { padding: 20px; }
+    .chalet { background: white; margin-bottom: 20px; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; }
+    form { margin-top: 40px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    input, select, textarea {
+      width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;
+    }
+    button {
+      background-color: #25D366; color: white; padding: 15px 30px;
+      border: none; border-radius: 50px; font-size: 16px; cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-<h1>Dubai Elite Homes</h1>
-<p>تأجير شاليهات، فلل، وغرف فندقية فاخرة في دبي والمملكة العربية السعودية</p>
+  <h1>شاليهات سيلفر - Silver Chalets</h1>
+  <p>أبحر الشمالية - Silver Sands Beach</p>
 </header>
 
 <section>
-<h2>من نحن</h2>
-<p>
-نقدم في Dubai Elite Homes حلول إقامة متنوعة تشمل الشاليهات الخاصة، الفلل، والغرف الفندقية المختارة بعناية، مع مرونة كاملة في الخيارات حسب الموقع والحجم ومدة الإقامة.
-</p>
+  <h2>أنواع الشاليهات</h2>
+
+  <div class="chalet">
+    <h3>شاليه بغرفة واحدة</h3>
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="شاليه غرفة">
+    <p>غرفة وصالة ومطبخ وحمامين وجلسة خارجية</p>
+  </div>
+
+  <div class="chalet">
+    <h3>شاليه غرفتين</h3>
+    <img src="https://images.unsplash.com/photo-1617104527596-c9f29f8b3e2c" alt="شاليه غرفتين">
+    <p>غرفتين وصالة وجلسة داخلية وخارجية و3 دورات مياه ومسبح خاص</p>
+  </div>
+
+  <div class="chalet">
+    <h3>فلة 3 غرف</h3>
+    <img src="https://images.unsplash.com/photo-1586105251261-72a756497a12" alt="فلة 3 غرف">
+    <p>فله 3 غرف نوم و5 دورات مياه ومسبح خاص وشاطئ</p>
+  </div>
+
+  <div class="chalet">
+    <h3>فلة VIP دورين</h3>
+    <img src="https://images.unsplash.com/photo-1600585154356-596af9009a4b" alt="فيلا VIP">
+    <p>فلة VIP دورين 5 غرف نوم وصالة ومسبح خاص ومسبح أطفال وشاطئ خاص</p>
+  </div>
 </section>
 
 <section>
-<h2>خيارات الإقامة</h2>
-<ul>
-<li>غرف فندقية</li>
-<li>شاليهات خاصة بمسابح</li>
-<li>فلل ومنتجعات عائلية</li>
-</ul>
-<p><strong>الأسعار تبدأ من:</strong></p>
-<ul>
-<li>الغرف الفندقية: 300 درهم إماراتي</li>
-<li>الشاليهات والفلل: 1500 درهم إماراتي</li>
-</ul>
-<p>تختلف الأسعار حسب الموقع، الموسم، ومدة الإقامة.</p>
+  <h2>نموذج الحجز</h2>
+  <form id="bookingForm" onsubmit="sendWhatsApp(); return false;">
+    <label>الاسم الكامل</label>
+    <input type="text" id="name" required>
+    <label>تاريخ الوصول</label>
+    <input type="date" id="date" required>
+    <label>عدد الليالي</label>
+    <input type="number" id="nights" min="1" required>
+    <label>عدد الضيوف</label>
+    <input type="number" id="guests" min="1" required>
+    <label>نوع الشاليه</label>
+    <select id="type">
+      <option>شاليه بغرفة واحدة</option>
+      <option>شاليه غرفتين</option>
+      <option>فلة 3 غرف</option>
+      <option>فلة VIP دورين</option>
+    </select>
+    <label>ملاحظات إضافية</label>
+    <textarea id="notes" rows="3"></textarea>
+    <button type="submit">إرسال الطلب عبر واتساب</button>
+  </form>
 </section>
 
 <section>
-<h2>آلية الحجز</h2>
-<p>
-يتم اختيار الوحدة المناسبة بعد التواصل، ثم يتم إرسال تفاصيل الحجز، وبعدها يتم الدفع الإلكتروني الآمن عبر Stripe.
-</p>
-</section>
-
-<section>
-<h2>سياسة الحجز والإلغاء</h2>
-<ul>
-<li>يتم تأكيد الحجز بعد إتمام الدفع</li>
-<li>الإلغاء قبل 7 أيام: استرجاع كامل المبلغ</li>
-<li>الإلغاء قبل 3 أيام: استرجاع 50% من المبلغ</li>
-<li>الإلغاء خلال 48 ساعة أو عدم الحضور: لا يوجد استرجاع</li>
-</ul>
-</section>
-
-<section>
-<h2>الدفع الآمن</h2>
-<p>
-جميع المدفوعات تتم عبر بوابة Stripe الآمنة باستخدام بطاقات الائتمان، ولا يتم تخزين أي بيانات بنكية.
-</p>
-</section>
-
-<section>
-<h2>التواصل</h2>
-<p>واتساب: 0596310129</p>
-<p>البريد الإلكتروني: info@dubaielitehomes.com</p>
-<p>
-يتم تقديم خدمات Dubai Elite Homes بشكل إلكتروني كامل، ولا يوجد مقر استقبال ثابت.
-جميع الحجوزات والتواصل تتم عبر الإنترنت.
-</p>
+  <h2>شروط الحجز</h2>
+  <ul>
+    <li>🕓 الدخول: 04:00 مساءً | الخروج: 04:00 مساءً في اليوم التالي</li>
+    <li>❌ إلغاء مجاني حتى 24 ساعة قبل الوصول</li>
+    <li>💳 خصم 30% عند الإلغاء خلال 24 ساعة</li>
+    <li>📇 مطلوب بطاقة هوية سارية</li>
+    <li>🚭 ممنوع التدخين أو اصطحاب الحيوانات</li>
+    <li>💵 يُسترد التأمين عند الخروج السليم</li>
+  </ul>
 </section>
 
 <footer>
-© 2025 Dubai Elite Homes – جميع الحقوق محفوظة
+  <p>جميع الحقوق محفوظة &copy; Silver Chalets 2025</p>
 </footer>
+
+<script>
+  function sendWhatsApp() {
+    var name = document.getElementById("name").value;
+    var date = document.getElementById("date").value;
+    var nights = document.getElementById("nights").value;
+    var guests = document.getElementById("guests").value;
+    var type = document.getElementById("type").value;
+    var notes = document.getElementById("notes").value;
+    var message = "طلب حجز شاليه:\n";
+    message += "الاسم: " + name + "\n";
+    message += "تاريخ الوصول: " + date + "\n";
+    message += "عدد الليالي: " + nights + "\n";
+    message += "عدد الضيوف: " + guests + "\n";
+    message += "نوع الشاليه: " + type + "\n";
+    message += "ملاحظات: " + notes;
+    var encoded = encodeURIComponent(message);
+    window.open("https://wa.me/966596310129?text=" + encoded, "_blank");
+  }
+</script>
 
 </body>
 </html>
